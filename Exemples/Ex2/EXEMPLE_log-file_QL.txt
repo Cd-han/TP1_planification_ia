@@ -1,0 +1,353 @@
+/*  EXEMPLE À TITRE INDICATIF */
+
+
+Iteration 1
+Départ de l'état S8
+
+Action à prendre pi(S8) = argmax{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= haut
+S8 -> S4
+
+Q(S8,haut) <- Q(S8,haut) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S8,haut))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= haut
+S4 -> S4
+
+Q(S4,haut) <- Q(S4,haut) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,haut))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.02, 0.0, 0.0, 0.0 }
+			= bas
+S4 -> S4
+
+Q(S4,bas) <- Q(S4,bas) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,bas))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.02, -0.02, 0.0, 0.0 }
+			= droite
+S4 -> S0
+
+Q(S4,droite) <- Q(S4,droite) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S4,droite))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= gauche
+S0 -> S0
+
+Q(S0,gauche) <- Q(S0,gauche) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S0,gauche))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ 0.0, 0.0, -0.02, 0.0 }
+			= bas
+S0 -> S4
+
+Q(S0,bas) <- Q(S0,bas) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S0,bas))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.02, -0.02, 0.0, -0.02 }
+			= gauche
+S4 -> S4
+
+Q(S4,gauche) <- Q(S4,gauche) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,gauche))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.02, -0.02, -0.02, -0.02 }
+			= bas
+S4 -> S4
+
+Q(S4,bas) <- Q(S4,bas) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,bas))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * -0.02 - -0.02)
+			 = -0.035
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.02, -0.035, -0.02, -0.02 }
+			= droite
+S4 -> S0
+
+Q(S4,droite) <- Q(S4,droite) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S4,droite))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * 0.0 - -0.02)
+			 = -0.03
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ 0.0, -0.02, -0.02, 0.0 }
+			= haut
+S0 -> S0
+
+Q(S0,haut) <- Q(S0,haut) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S0,haut))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ -0.02, -0.02, -0.02, 0.0 }
+			= droite
+S0 -> S4
+
+Q(S0,droite) <- Q(S0,droite) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S0,droite))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * -0.02 - 0.0)
+			 = -0.025
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.02, -0.035, -0.02, -0.03 }
+			= haut
+S4 -> S4
+
+Q(S4,haut) <- Q(S4,haut) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,haut))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * -0.02 - -0.02)
+			 = -0.035
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.035, -0.035, -0.02, -0.03 }
+			= gauche
+S4 -> S4
+
+Q(S4,gauche) <- Q(S4,gauche) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,gauche))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * -0.02 - -0.02)
+			 = -0.035
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.035, -0.035, -0.035, -0.03 }
+			= droite
+S4 -> S4
+
+Q(S4,droite) <- Q(S4,droite) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,droite))
+			 = -0.03 + 0.5 * (-0.04 + 0.5 * -0.03 - -0.03)
+			 = -0.042499999999999996
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.035, -0.035, -0.035, -0.042499999999999996 }
+			= haut
+S4 -> S0
+
+Q(S4,haut) <- Q(S4,haut) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S4,haut))
+			 = -0.035 + 0.5 * (-0.04 + 0.5 * -0.02 - -0.035)
+			 = -0.0425
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ -0.02, -0.02, -0.02, -0.025 }
+			= haut
+S0 -> S0
+
+Q(S0,haut) <- Q(S0,haut) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S0,haut))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * -0.02 - -0.02)
+			 = -0.035
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ -0.035, -0.02, -0.02, -0.025 }
+			= gauche
+S0 -> S0
+
+Q(S0,gauche) <- Q(S0,gauche) + α * (R(S0) + γ * max{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite) } - Q(S0,gauche))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * -0.02 - -0.02)
+			 = -0.035
+
+Action à prendre pi(S0) = argmax{ Q(S0, haut), Q(S0, bas), Q(S0, gauche), Q(S0, droite)}
+			= argmax{ -0.035, -0.02, -0.035, -0.025 }
+			= bas
+S0 -> S4
+
+Q(S0,bas) <- Q(S0,bas) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S0,bas))
+			 = -0.02 + 0.5 * (-0.04 + 0.5 * -0.035 - -0.02)
+			 = -0.03875000000000001
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.0425, -0.035, -0.035, -0.042499999999999996 }
+			= gauche
+S4 -> S4
+
+Q(S4,gauche) <- Q(S4,gauche) + α * (R(S4) + γ * max{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite) } - Q(S4,gauche))
+			 = -0.035 + 0.5 * (-0.04 + 0.5 * -0.035 - -0.035)
+			 = -0.04625
+
+Action à prendre pi(S4) = argmax{ Q(S4, haut), Q(S4, bas), Q(S4, gauche), Q(S4, droite)}
+			= argmax{ -0.0425, -0.035, -0.04625, -0.042499999999999996 }
+			= bas
+S4 -> S8
+
+Q(S4,bas) <- Q(S4,bas) + α * (R(S8) + γ * max{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite) } - Q(S4,bas))
+			 = -0.035 + 0.5 * (-0.04 + 0.5 * 0.0 - -0.035)
+			 = -0.037500000000000006
+
+Action à prendre pi(S8) = argmax{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite)}
+			= argmax{ -0.02, 0.0, 0.0, 0.0 }
+			= droite
+S8 -> S9
+
+Q(S8,droite) <- Q(S8,droite) + α * (R(S9) + γ * max{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite) } - Q(S8,droite))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S9) = argmax{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= gauche
+S9 -> S8
+
+Q(S9,gauche) <- Q(S9,gauche) + α * (R(S8) + γ * max{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite) } - Q(S9,gauche))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S8) = argmax{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite)}
+			= argmax{ -0.02, 0.0, 0.0, -0.02 }
+			= gauche
+S8 -> S8
+
+Q(S8,gauche) <- Q(S8,gauche) + α * (R(S8) + γ * max{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite) } - Q(S8,gauche))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S8) = argmax{ Q(S8, haut), Q(S8, bas), Q(S8, gauche), Q(S8, droite)}
+			= argmax{ -0.02, 0.0, -0.02, -0.02 }
+			= bas
+S8 -> S9
+
+Q(S8,bas) <- Q(S8,bas) + α * (R(S9) + γ * max{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite) } - Q(S8,bas))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S9) = argmax{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite)}
+			= argmax{ 0.0, 0.0, -0.02, 0.0 }
+			= haut
+S9 -> S9
+
+Q(S9,haut) <- Q(S9,haut) + α * (R(S9) + γ * max{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite) } - Q(S9,haut))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S9) = argmax{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite)}
+			= argmax{ -0.02, 0.0, -0.02, 0.0 }
+			= bas
+S9 -> S9
+
+Q(S9,bas) <- Q(S9,bas) + α * (R(S9) + γ * max{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite) } - Q(S9,bas))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S9) = argmax{ Q(S9, haut), Q(S9, bas), Q(S9, gauche), Q(S9, droite)}
+			= argmax{ -0.02, -0.02, -0.02, 0.0 }
+			= droite
+S9 -> S10
+
+Q(S9,droite) <- Q(S9,droite) + α * (R(S10) + γ * max{ Q(S10, haut), Q(S10, bas), Q(S10, gauche), Q(S10, droite) } - Q(S9,droite))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S10) = argmax{ Q(S10, haut), Q(S10, bas), Q(S10, gauche), Q(S10, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= gauche
+S10 -> S10
+
+Q(S10,gauche) <- Q(S10,gauche) + α * (R(S10) + γ * max{ Q(S10, haut), Q(S10, bas), Q(S10, gauche), Q(S10, droite) } - Q(S10,gauche))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S10) = argmax{ Q(S10, haut), Q(S10, bas), Q(S10, gauche), Q(S10, droite)}
+			= argmax{ 0.0, 0.0, -0.02, 0.0 }
+			= droite
+S10 -> S11
+
+Q(S10,droite) <- Q(S10,droite) + α * (R(S11) + γ * max{ Q(S11, haut), Q(S11, bas), Q(S11, gauche), Q(S11, droite) } - Q(S10,droite))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S11) = argmax{ Q(S11, haut), Q(S11, bas), Q(S11, gauche), Q(S11, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= bas
+S11 -> S10
+
+Q(S11,bas) <- Q(S11,bas) + α * (R(S10) + γ * max{ Q(S10, haut), Q(S10, bas), Q(S10, gauche), Q(S10, droite) } - Q(S11,bas))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S10) = argmax{ Q(S10, haut), Q(S10, bas), Q(S10, gauche), Q(S10, droite)}
+			= argmax{ 0.0, 0.0, -0.02, -0.02 }
+			= haut
+S10 -> S6
+
+Q(S10,haut) <- Q(S10,haut) + α * (R(S6) + γ * max{ Q(S6, haut), Q(S6, bas), Q(S6, gauche), Q(S6, droite) } - Q(S10,haut))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S6) = argmax{ Q(S6, haut), Q(S6, bas), Q(S6, gauche), Q(S6, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= gauche
+S6 -> S6
+
+Q(S6,gauche) <- Q(S6,gauche) + α * (R(S6) + γ * max{ Q(S6, haut), Q(S6, bas), Q(S6, gauche), Q(S6, droite) } - Q(S6,gauche))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S6) = argmax{ Q(S6, haut), Q(S6, bas), Q(S6, gauche), Q(S6, droite)}
+			= argmax{ 0.0, 0.0, -0.02, 0.0 }
+			= haut
+S6 -> S2
+
+Q(S6,haut) <- Q(S6,haut) + α * (R(S2) + γ * max{ Q(S2, haut), Q(S2, bas), Q(S2, gauche), Q(S2, droite) } - Q(S6,haut))
+			 = 0.0 + 0.5 * (-0.04 + 0.5 * 0.0 - 0.0)
+			 = -0.02
+
+Action à prendre pi(S2) = argmax{ Q(S2, haut), Q(S2, bas), Q(S2, gauche), Q(S2, droite)}
+			= argmax{ 0.0, 0.0, 0.0, 0.0 }
+			= droite
+S2 -> S3
+
+Q(S2,droite) <- Q(S2,droite) + α * (R(S3) + γ * max{ Q(S3, None) } - Q(S2,droite))
+			 = 0.0 + 0.5 * (1.0 + 0.5 * 0.0 - 0.0)
+			 = 0.5
+
+Fin de l'essai
+
+
+
+Iteration 2
+Départ de l'état S8
+
+....
+
+....
+
+....
+
+Fin de l'essai
+
+...
+...
+...
+
+
+Iteration 20
+
+...
+
+Fin de l'essai
+
+
+/**************************/
+Meilleure action pour chaque état :
+...        ...        ...    None   
+...        None   ...    None   
+haut    ...        ...      ...    
+
+
+
+
+
+
+
+
+
