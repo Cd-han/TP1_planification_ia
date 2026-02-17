@@ -1,0 +1,396 @@
+--Initiation de la politique---
+
+Grid_0_0 -> ^ up a été choisie initialement
+Grid_0_1 -> < left a été choisie initialement
+Grid_0_2 -> v down a été choisie initialement
+Grid_1_0 -> v down a été choisie initialement
+Grid_1_2 -> v down a été choisie initialement
+Grid_2_0 -> < left a été choisie initialement
+Grid_2_1 -> ^ up a été choisie initialement
+Grid_2_2 -> > right a été choisie initialement
+Grid_2_3 -> ^ up a été choisie initialement
+
+---Visualisation---
+
+[^, <, v, B]
+[v, o, v, F]
+[<, ^, >, ^]
+
+--- Itération 0 ---
+
+---Evaluation de la politique (Résolution exacte par système d'équations)---
+
+Grid_0_0 (-> ^ up): -0.08000000000000002
+Grid_0_1 (-> < left): -0.08
+Grid_0_2 (-> v down): -0.06912280701754392
+Grid_1_0 (-> v down): -0.08
+Grid_1_2 (-> v down): -0.32280701754385976
+Grid_2_0 (-> < left): -0.08000000000000002
+Grid_2_1 (-> ^ up): -0.10888888888888892
+Grid_2_2 (-> > right): -0.4266666666666668
+Grid_2_3 (-> ^ up): -0.8729824561403511
+
+---Amélioration de la politique---
+
+    Grid_0_0:
+Actuelle (-> ^ up) : -0.08000000000000002
+-> v down : -0.08000000000000002
+-> < left : -0.08000000000000002
+-> > right : -0.08000000000000002
+
+ Politique : Grid_0_0 -> ^ up
+
+    Grid_0_1:
+Actuelle (-> < left) : -0.08000000000000002
+-> ^ up : -0.07945614035087721
+-> v down : -0.07945614035087721
+-> > right : -0.07564912280701758
+
+ Changement de politique : Grid_0_1 -> > right
+
+    Grid_0_2:
+Actuelle (-> v down) : -0.06912280701754392
+-> ^ up : 0.032350877192982436
+-> < left : -0.09159649122807019
+-> > right : 0.7724035087719299
+
+ Changement de politique : Grid_0_2 -> > right
+
+    Grid_1_0:
+Actuelle (-> v down) : -0.08000000000000002
+-> ^ up : -0.08000000000000002
+-> < left : -0.08000000000000002
+-> > right : -0.08000000000000002
+
+ Politique : Grid_1_0 -> v down
+
+    Grid_1_2:
+Actuelle (-> v down) : -0.32280701754385976
+-> ^ up : -0.17978947368421055
+-> < left : -0.19391228070175445
+-> > right : -0.8327894736842105
+
+ Changement de politique : Grid_1_2 -> ^ up
+
+    Grid_2_0:
+Actuelle (-> < left) : -0.08000000000000002
+-> ^ up : -0.08144444444444446
+-> v down : -0.08144444444444447
+-> > right : -0.09155555555555558
+
+ Politique : Grid_2_0 -> < left
+
+    Grid_2_1:
+Actuelle (-> ^ up) : -0.10888888888888894
+-> v down : -0.10888888888888894
+-> < left : -0.08288888888888891
+-> > right : -0.22155555555555564
+
+ Changement de politique : Grid_2_1 -> < left
+
+    Grid_2_2:
+Actuelle (-> > right) : -0.42666666666666675
+-> ^ up : -0.21821637426900592
+-> v down : -0.25976023391812875
+-> < left : -0.12102923976608192
+
+ Changement de politique : Grid_2_2 -> < left
+
+    Grid_2_3:
+Actuelle (-> ^ up) : -0.872982456140351
+-> v down : -0.4541754385964913
+-> < left : -0.3503157894736843
+-> > right : -0.528842105263158
+
+ Changement de politique : Grid_2_3 -> < left
+
+---Visualisation---
+
+[^, >, >, B]
+[v, o, ^, F]
+[<, <, <, <]
+
+--- Itération 1 ---
+
+---Evaluation de la politique (Résolution exacte par système d'équations)---
+
+Grid_0_0 (-> ^ up): -0.04263141328297136
+Grid_0_1 (-> > right): 0.33105445388731514
+Grid_0_2 (-> > right): 0.8448725212464591
+Grid_1_0 (-> v down): -0.08
+Grid_1_2 (-> ^ up): 0.21257790368271953
+Grid_2_0 (-> < left): -0.08000000000000002
+Grid_2_1 (-> < left): -0.08
+Grid_2_2 (-> < left): -0.06460116296406741
+Grid_2_3 (-> < left): -0.17035838440592313
+
+---Amélioration de la politique---
+
+    Grid_0_0:
+Actuelle (-> ^ up) : -0.04263141328297136
+-> v down : -0.05757884796978282
+-> < left : -0.06318413597733712
+-> > right : 0.08629021089077749
+
+ Changement de politique : Grid_0_0 -> > right
+
+    Grid_0_1:
+Actuelle (-> > right) : 0.33105445388731514
+-> ^ up : 0.13253383695310045
+-> v down : 0.13253383695310045
+-> < left : -0.023947119924457038
+
+ Politique : Grid_0_1 -> > right
+
+    Grid_0_2:
+Actuelle (-> > right) : 0.844872521246459
+-> ^ up : 0.4185017311929494
+-> v down : 0.16558388416745357
+-> < left : 0.14529430280138497
+
+ Politique : Grid_0_2 -> > right
+
+    Grid_1_0:
+Actuelle (-> v down) : -0.08000000000000002
+-> ^ up : -0.06505256531318855
+-> < left : -0.07813157066414858
+-> > right : -0.07813157066414858
+
+ Changement de politique : Grid_1_0 -> ^ up
+
+    Grid_1_2:
+Actuelle (-> ^ up) : 0.2125779036827196
+-> v down : -0.151211570001491
+-> < left : 0.08404472938720739
+-> > right : -0.7689864320858805
+
+ Politique : Grid_1_2 -> ^ up
+
+    Grid_2_0:
+Actuelle (-> < left) : -0.08000000000000002
+-> ^ up : -0.08000000000000002
+-> v down : -0.08000000000000002
+-> > right : -0.08000000000000002
+
+ Politique : Grid_2_0 -> < left
+
+    Grid_2_1:
+Actuelle (-> < left) : -0.08000000000000002
+-> ^ up : -0.07923005814820339
+-> v down : -0.07923005814820339
+-> > right : -0.07384046518562697
+
+ Changement de politique : Grid_2_1 -> > right
+
+    Grid_2_2:
+Actuelle (-> < left) : -0.0646011629640674
+-> ^ up : 0.03251324225279166
+-> v down : -0.07835838440592313
+-> > right : -0.10074451672643664
+
+ Changement de politique : Grid_2_2 -> ^ up
+
+    Grid_2_3:
+Actuelle (-> < left) : -0.17035838440592313
+-> ^ up : -0.8197479773684995
+-> v down : -0.11989133113086878
+-> > right : -0.2126612729826654
+
+ Changement de politique : Grid_2_3 -> v down
+
+---Visualisation---
+
+[>, >, >, B]
+[^, o, ^, F]
+[<, >, ^, v]
+
+--- Itération 2 ---
+
+---Evaluation de la politique (Résolution exacte par système d'équations)---
+
+Grid_0_0 (-> > right): 0.09722108191548916
+Grid_0_1 (-> > right): 0.33105445388731514
+Grid_0_2 (-> > right): 0.8448725212464591
+Grid_1_0 (-> ^ up): -0.0012350747042270333
+Grid_1_2 (-> ^ up): 0.21257790368271953
+Grid_2_0 (-> < left): -0.07283955224583882
+Grid_2_1 (-> > right): -0.026555567152923055
+Grid_2_2 (-> ^ up): 0.04024997390592312
+Grid_2_3 (-> v down): -0.06906818419037063
+
+---Amélioration de la politique---
+
+    Grid_0_0:
+Actuelle (-> > right) : 0.09722108191548916
+-> ^ up : 0.020302209556335875
+-> v down : -0.0190802530915506
+-> < left : 0.0036877331267587687
+
+ Politique : Grid_0_0 -> > right
+
+    Grid_0_1:
+Actuelle (-> > right) : 0.33105445388731514
+-> ^ up : 0.13952646171302346
+-> v down : 0.13952646171302346
+-> < left : 0.03199387815492717
+
+ Politique : Grid_0_1 -> > right
+
+    Grid_0_2:
+Actuelle (-> > right) : 0.844872521246459
+-> ^ up : 0.4185017311929494
+-> v down : 0.16558388416745357
+-> < left : 0.14529430280138497
+
+ Politique : Grid_0_2 -> > right
+
+    Grid_1_0:
+Actuelle (-> ^ up) : -0.0012350747042270405
+-> v down : -0.06925932836875824
+-> < left : -0.039274953398208294
+-> > right : -0.039274953398208294
+
+ Politique : Grid_1_0 -> ^ up
+
+    Grid_1_2:
+Actuelle (-> ^ up) : 0.2125779036827196
+-> v down : -0.10927111525349478
+-> < left : 0.08928728623070692
+-> > right : -0.763743875242381
+
+ Politique : Grid_1_2 -> ^ up
+
+    Grid_2_0:
+Actuelle (-> < left) : -0.07283955224583884
+-> ^ up : -0.045463785851628906
+-> v down : -0.07410557686827364
+-> > right : -0.05432595820867252
+
+ Changement de politique : Grid_2_0 -> ^ up
+
+    Grid_2_1:
+Actuelle (-> > right) : -0.02655556715292306
+-> ^ up : -0.05225170577816501
+-> v down : -0.05225170577816501
+-> < left : -0.07179137761362785
+
+ Politique : Grid_2_1 -> > right
+
+    Grid_2_2:
+Actuelle (-> ^ up) : 0.040249973905923137
+-> v down : -0.02868119800479544
+-> < left : -0.03798083298173709
+-> > right : -0.05498587979671612
+
+ Politique : Grid_2_2 -> ^ up
+
+    Grid_2_3:
+Actuelle (-> v down) : -0.06906818419037063
+-> ^ up : -0.8094409105142224
+-> < left : -0.1233534196471493
+-> > right : -0.1670806828856668
+
+ Politique : Grid_2_3 -> v down
+
+---Visualisation---
+
+[>, >, >, B]
+[^, o, ^, F]
+[^, >, ^, v]
+
+--- Itération 3 ---
+
+---Evaluation de la politique (Résolution exacte par système d'équations)---
+
+Grid_0_0 (-> > right): 0.09722108191548916
+Grid_0_1 (-> > right): 0.33105445388731514
+Grid_0_2 (-> > right): 0.8448725212464591
+Grid_1_0 (-> ^ up): -0.0012350747042270333
+Grid_1_2 (-> ^ up): 0.21257790368271953
+Grid_2_0 (-> ^ up): -0.04402295604140734
+Grid_2_1 (-> > right): -0.026555567152923055
+Grid_2_2 (-> ^ up): 0.04024997390592312
+Grid_2_3 (-> v down): -0.06906818419037063
+
+---Amélioration de la politique---
+
+    Grid_0_0:
+Actuelle (-> > right) : 0.09722108191548916
+-> ^ up : 0.020302209556335875
+-> v down : -0.0190802530915506
+-> < left : 0.0036877331267587687
+
+ Politique : Grid_0_0 -> > right
+
+    Grid_0_1:
+Actuelle (-> > right) : 0.33105445388731514
+-> ^ up : 0.13952646171302346
+-> v down : 0.13952646171302346
+-> < left : 0.03199387815492717
+
+ Politique : Grid_0_1 -> > right
+
+    Grid_0_2:
+Actuelle (-> > right) : 0.844872521246459
+-> ^ up : 0.4185017311929494
+-> v down : 0.16558388416745357
+-> < left : 0.14529430280138497
+
+ Politique : Grid_0_2 -> > right
+
+    Grid_1_0:
+Actuelle (-> ^ up) : -0.0012350747042270405
+-> v down : -0.05773268988698564
+-> < left : -0.03783412358798672
+-> > right : -0.03783412358798672
+
+ Politique : Grid_1_0 -> ^ up
+
+    Grid_1_2:
+Actuelle (-> ^ up) : 0.2125779036827196
+-> v down : -0.10927111525349478
+-> < left : 0.08928728623070692
+-> > right : -0.763743875242381
+
+ Politique : Grid_1_2 -> ^ up
+
+    Grid_2_0:
+Actuelle (-> ^ up) : -0.04402295604140733
+-> v down : -0.06113810857627946
+-> < left : -0.059872083953844656
+-> > right : -0.05288512839845094
+
+ Politique : Grid_2_0 -> ^ up
+
+    Grid_2_1:
+Actuelle (-> > right) : -0.02655556715292306
+-> ^ up : -0.05081087596794343
+-> v down : -0.05081087596794343
+-> < left : -0.06026473913185525
+
+ Politique : Grid_2_1 -> > right
+
+    Grid_2_2:
+Actuelle (-> ^ up) : 0.040249973905923137
+-> v down : -0.02868119800479544
+-> < left : -0.03798083298173709
+-> > right : -0.05498587979671612
+
+ Politique : Grid_2_2 -> ^ up
+
+    Grid_2_3:
+Actuelle (-> v down) : -0.06906818419037063
+-> ^ up : -0.8094409105142224
+-> < left : -0.1233534196471493
+-> > right : -0.1670806828856668
+
+ Politique : Grid_2_3 -> v down
+
+---Visualisation---
+
+[>, >, >, B]
+[^, o, ^, F]
+[^, >, ^, v]
+
+Pas de Changement : Fin de l'algorithme
+Nombre d'itérations finales : 3
